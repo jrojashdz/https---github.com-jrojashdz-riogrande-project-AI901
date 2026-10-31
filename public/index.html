@@ -3,36 +3,162 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rio Claro | Asistente Río Claro</title>
+  <meta name="description" content="Asistente virtual de Distribuidora Río Claro">
+  <title>Río Claro | Asistente virtual</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <main class="app-shell">
-    <header class="app-header">
-      <div>
-        <p class="eyebrow">RIOCLARO</p>
-        <h1>Asistente Río Claro</h1>
+  <header class="site-header">
+    <a class="brand" href="#chat-view" aria-label="Ir al inicio de Río Claro">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img">
+          <path d="M7 25c7-8 12-8 18 0s11 8 16 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
+          <path d="M7 33c7-8 12-8 18 0s11 8 16 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
+          <circle cx="24" cy="12" r="4" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-copy">
+        <strong>Río Claro</strong>
+        <small>Distribuidora</small>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <button class="nav-link is-active" data-view="chat-view" type="button">Asistente</button>
+      <button class="nav-link" data-view="invoice-view" type="button">Cargar factura</button>
+      <button class="nav-link" data-view="dashboard-view" type="button">Mis facturas</button>
+    </nav>
+    <div class="header-meta">
+      <div class="team-members">
+        <span class="team-label">Integrantes del equipo</span>
+        <span>Jesús Rojas Hernández · Aldo Hernández Díaz</span>
       </div>
-      <button id="new-chat" class="button button-secondary" type="button" aria-label="Iniciar una nueva conversación">Nueva conversación</button>
-    </header>
+      <span class="header-status"><span class="status-dot"></span> En línea</span>
+    </div>
+  </header>
 
-    <p class="transparency-notice" role="note">Aviso: soy un asistente de inteligencia artificial. Verifica la información importante con RhinoSoft.</p>
+  <main class="page-content">
+    <section id="chat-view" class="view is-visible" aria-labelledby="chat-title">
+      <div class="assistant-layout">
+        <div class="assistant-intro">
+          <span class="pill"><span class="status-dot"></span> Asistente disponible</span>
+          <h1 id="chat-title">¿En qué podemos ayudarte?</h1>
+          <p>Resuelve tus dudas sobre productos, pedidos y servicios de Río Claro.</p>
+        </div>
 
-    <section id="chat" class="chat" aria-live="polite" aria-label="Conversación">
-      <div class="message message-assistant">
-        <div class="bubble">Hola, soy el asistente de Río Claro. Puedo ayudarte con nuestros productos, servicios y procesos.</div>
+        <div class="chat-card card">
+          <div class="chat-card-header">
+            <div class="avatar" aria-hidden="true">RC</div>
+            <div>
+              <h2>Asistente Río Claro</h2>
+              <p>Respuestas rápidas para ti</p>
+            </div>
+            <button id="new-chat" class="button button-secondary button-small" type="button" aria-label="Iniciar una nueva conversación">Nueva conversación</button>
+          </div>
+          <p class="transparency-notice" role="note">Aviso: soy un asistente de inteligencia artificial. Verifica la información importante con nuestro equipo.</p>
+
+          <div class="faq-block">
+            <h3>Preguntas frecuentes</h3>
+            <div class="faq-list">
+              <button class="faq-button" type="button">¿Con quién estoy hablando?</button>
+              <button class="faq-button" type="button">¿Tienen cloro de un litro?</button>
+              <button class="faq-button" type="button">¿Qué productos manejan?</button>
+              <button class="faq-button" type="button">¿Dónde está mi pedido?</button>
+            </div>
+          </div>
+
+          <section id="chat" class="chat" aria-live="polite" aria-label="Conversación">
+            <div class="message message-assistant">
+              <div class="bubble">Hola, soy el asistente de Río Claro. Pregúntame sobre nuestros productos, servicios o tu pedido.</div>
+            </div>
+          </section>
+
+          <form id="chat-form" class="composer">
+            <label class="sr-only" for="message">Escribe tu mensaje</label>
+            <textarea id="message" rows="1" maxlength="2000" placeholder="Escribe tu pregunta..." aria-label="Escribe tu mensaje" required></textarea>
+            <div class="composer-actions">
+              <button id="dictate" class="voice-button" type="button" aria-label="Dictar mensaje" title="Dictar mensaje">🎙</button>
+              <button id="send" class="button button-primary" type="submit">Enviar <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 
-    <form id="chat-form" class="composer">
-      <label class="sr-only" for="message">Escribe tu mensaje</label>
-      <textarea id="message" rows="1" maxlength="2000" placeholder="Escribe tu pregunta..." aria-label="Escribe tu mensaje" required></textarea>
-      <div class="composer-actions">
-        <button id="dictate" class="icon-button" type="button" aria-label="Dictar mensaje" title="Dictar mensaje">🎙</button>
-        <button id="send" class="button button-primary" type="submit">Enviar</button>
+    <section id="invoice-view" class="view" aria-labelledby="invoice-title">
+      <div class="section-heading">
+        <span class="pill">Gestión de documentos</span>
+        <h1 id="invoice-title">Carga una factura</h1>
+        <p>Sube tu factura para consultar su estado y mantener tus documentos organizados.</p>
+        <p class="simulation-notice"><strong>Simulación de interfaz:</strong> esta función se ejecuta localmente en el navegador y todavía no está implementada en el agente de Microsoft Foundry.</p>
       </div>
-    </form>
+      <div class="card upload-card">
+        <label id="drop-zone" class="drop-zone" for="invoice-file">
+          <span class="upload-icon" aria-hidden="true">↑</span>
+          <strong>Arrastra tu factura aquí</strong>
+          <span>o selecciona un archivo desde tu equipo</span>
+          <small>PDF, JPG o PNG · Máximo 10 MB</small>
+          <input id="invoice-file" type="file" accept=".pdf,.jpg,.jpeg,.png">
+        </label>
+        <div id="file-preview" class="file-preview" hidden></div>
+        <div id="invoice-result" class="invoice-result" hidden>
+          <div class="result-heading">
+            <div>
+              <span class="pill">Extracción local completada</span>
+              <h2>Datos de la factura</h2>
+            </div>
+            <button id="clear-invoice" class="button button-secondary button-small" type="button">Limpiar</button>
+          </div>
+          <div id="invoice-fields" class="invoice-fields"></div>
+          <h3>Productos</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Cantidad</th><th>Descripción</th><th>P. unitario</th><th>Importe</th></tr></thead>
+              <tbody id="invoice-products"></tbody>
+            </table>
+          </div>
+          <p id="extraction-warning" class="extraction-warning" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard-view" class="view" aria-labelledby="dashboard-title">
+      <div class="section-heading section-heading-row">
+        <div>
+          <span class="pill">Historial</span>
+          <h1 id="dashboard-title">Mis facturas</h1>
+          <p>Consulta el estado de tus documentos recientes.</p>
+          <p class="simulation-notice"><strong>Simulación de interfaz:</strong> estos datos son demostrativos y esta vista todavía no está conectada al agente de Microsoft Foundry.</p>
+        </div>
+        <button class="button button-primary" data-view="invoice-view" type="button">Cargar factura <span aria-hidden="true">+</span></button>
+      </div>
+      <div class="card invoice-table-card">
+        <div class="table-toolbar">
+          <label for="status-filter">Filtrar por estado</label>
+          <select id="status-filter">
+            <option value="all">Todas</option>
+            <option value="validated">Validadas</option>
+            <option value="pending">Pendientes</option>
+            <option value="duplicate">Duplicadas</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Factura</th><th>Fecha</th><th>Monto</th><th>Estado</th></tr></thead>
+            <tbody id="invoice-list">
+              <tr data-status="validated"><td><strong>RC-001245</strong></td><td>28 oct 2026</td><td>$1,240.00</td><td><span class="badge badge-success">Validada</span></td></tr>
+              <tr data-status="pending"><td><strong>RC-001244</strong></td><td>26 oct 2026</td><td>$865.50</td><td><span class="badge badge-warning">Pendiente</span></td></tr>
+              <tr data-status="duplicate"><td><strong>RC-001240</strong></td><td>20 oct 2026</td><td>$420.00</td><td><span class="badge badge-error">Duplicada</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div><strong>Río Claro</strong><span>Distribuidora confiable para tu negocio.</span></div>
+    <span>© 2026 Río Claro · Atención con tecnología y confianza</span>
+  </footer>
   <script src="/app.js"></script>
 </body>
 </html>

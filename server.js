@@ -25,6 +25,7 @@ const agentReference = {
 
 app.use(express.json({ limit: "20kb" }));
 app.use(express.static(path.join(import.meta.dirname, "public")));
+app.use("/vendor/pdfjs", express.static(path.join(import.meta.dirname, "node_modules", "pdfjs-dist", "build")));
 
 app.get("/health", (_request, response) => {
   response.json({ status: "ok" });
