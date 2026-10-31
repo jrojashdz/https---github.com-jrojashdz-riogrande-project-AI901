@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rio Claro | Asistente Río Claro</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">RIOCLARO</p>
+        <h1>Asistente Río Claro</h1>
+      </div>
+      <button id="new-chat" class="button button-secondary" type="button" aria-label="Iniciar una nueva conversación">Nueva conversación</button>
+    </header>
+
+    <p class="transparency-notice" role="note">Aviso: soy un asistente de inteligencia artificial. Verifica la información importante con RhinoSoft.</p>
+
+    <section id="chat" class="chat" aria-live="polite" aria-label="Conversación">
+      <div class="message message-assistant">
+        <div class="bubble">Hola, soy el asistente de Río Claro. Puedo ayudarte con nuestros productos, servicios y procesos.</div>
+      </div>
+    </section>
+
+    <form id="chat-form" class="composer">
+      <label class="sr-only" for="message">Escribe tu mensaje</label>
+      <textarea id="message" rows="1" maxlength="2000" placeholder="Escribe tu pregunta..." aria-label="Escribe tu mensaje" required></textarea>
+      <div class="composer-actions">
+        <button id="dictate" class="icon-button" type="button" aria-label="Dictar mensaje" title="Dictar mensaje">🎙</button>
+        <button id="send" class="button button-primary" type="submit">Enviar</button>
+      </div>
+    </form>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

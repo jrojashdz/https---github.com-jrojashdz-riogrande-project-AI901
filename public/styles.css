@@ -1,0 +1,61 @@
+:root {
+  --navy: #102a43;
+  --blue: #1976a8;
+  --teal: #1c9a9a;
+  --mist: #eef7f8;
+  --ink: #203040;
+  --muted: #607080;
+  --white: #ffffff;
+  --border: #d3e2e5;
+  --radius: 16px;
+  --space: 1rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  background: linear-gradient(135deg, #eaf5f7, #f8fbfc);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  width: min(900px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+.app-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space); }
+.eyebrow { margin: 0; color: var(--teal); font-size: .75rem; font-weight: 800; letter-spacing: .16em; }
+h1 { margin: .25rem 0 0; color: var(--navy); font-size: clamp(1.5rem, 5vw, 2.25rem); }
+.transparency-notice { margin: 1.5rem 0 1rem; color: var(--muted); font-size: .85rem; }
+.chat { display: flex; flex: 1; flex-direction: column; gap: .75rem; min-height: 300px; padding: 1rem 0; overflow-y: auto; }
+.message { display: flex; max-width: 80%; }
+.message-user { align-self: flex-end; justify-content: flex-end; }
+.bubble { padding: .8rem 1rem; border-radius: var(--radius); line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.message-assistant .bubble { background: var(--white); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
+.message-user .bubble { color: var(--white); background: var(--navy); border-bottom-right-radius: 4px; }
+.message-error .bubble { color: #8d2929; background: #fff0f0; border: 1px solid #efb4b4; }
+.composer { display: flex; align-items: flex-end; gap: .6rem; padding: .75rem; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 8px 24px #102a4314; }
+textarea { flex: 1; width: 100%; resize: vertical; min-height: 2.75rem; max-height: 8rem; padding: .7rem; color: var(--ink); font: inherit; border: 0; outline: 0; }
+.composer-actions { display: flex; align-items: center; gap: .45rem; }
+.button, .icon-button { cursor: pointer; border: 0; font: inherit; font-weight: 700; }
+.button { padding: .7rem 1rem; border-radius: 10px; }
+.button-primary { color: var(--white); background: var(--blue); }
+.button-secondary { color: var(--navy); background: transparent; border: 1px solid var(--border); }
+.icon-button { padding: .6rem; color: var(--blue); background: var(--mist); border-radius: 10px; }
+.button:disabled, .icon-button:disabled { cursor: wait; opacity: .6; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 520px) {
+  .app-header { align-items: flex-start; flex-direction: column; }
+  .button-secondary { align-self: stretch; }
+  .message { max-width: 92%; }
+  .composer { align-items: stretch; flex-direction: column; }
+  .composer-actions { justify-content: flex-end; }
+}
